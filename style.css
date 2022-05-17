@@ -72,9 +72,9 @@ textarea::placeholder{
 .Botoes{
     display: flex;
     justify-content: space-between;
+    
  }
-
-.Botoes > button{
+ button{
     width: 328px;
     height: 67px;
     box-sizing: border-box;
@@ -84,6 +84,7 @@ textarea::placeholder{
     line-height: 19.36px;
     text-align: center;
     margin-top: 20px;
+    cursor: pointer;
 
 }
 
@@ -105,7 +106,7 @@ button:hover{
 
 .Criptografar:hover{
     background:#072B61;
-    cursor: pointer;
+    
 }
 
 .Descriptografar:hover{
@@ -172,4 +173,8 @@ footer > img{
 
 #de{
    color: #a9dbff;
+}
+
+#Result, #btnCopiar{
+    display: none;
 }
