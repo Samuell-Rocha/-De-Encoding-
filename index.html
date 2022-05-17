@@ -34,13 +34,15 @@
                 </div>
 
                 <div class="Botoes">
-                    <button class="Criptografar">Criptografar</button>
-                    <button class="Descriptografar">Descriptografar</button>
+                    <button class="Criptografar" onclick="Criptografa('Result', 'btnCopiar');">Criptografar</button>
+                    <button class="Descriptografar" onclick="Desciprtografar()">Descriptografar</button>
                 </div>
 
             </section>
 
             <section class="CaixaResultante">
+                    <textarea id="Result" cols="20" rows="7" style = "margin-top: 0;font-size: 32px;"></textarea>
+                    <button onclick="copiarTexto()" id="btnCopiar">Copiar</button>
                 <section class="Conteudo">
                     <img class = "menino" src="./img/Imagem.png" alt="Menino com lupa">
                     <p class="Mensagem1">Nenhuma mensagem encontrada</p>
