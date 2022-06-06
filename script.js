@@ -6,7 +6,7 @@ var resultado = document.querySelector('#Result')
 
 
 
-function Criptografa(caixatexto, botao) {
+function Criptografar(caixatexto, botao) {
     if (CaixaTexto.value) {
         const Encript = encriptar(CaixaTexto.value);
         resultado.value = Encript;
@@ -18,38 +18,42 @@ function Criptografa(caixatexto, botao) {
 
 }
 
-function Descriptografar() {
-    const Descript = Descriptar(Mensagem.value)
-
-
+function Descriptografar(caixatexto, botao) {
+    if (CaixaTexto.value) {
+        const Descript = Descriptar(CaixaTexto.value);
+        resultado.value = Descript;
+        document.getElementById(caixatexto).style.display = 'block';
+        document.getElementById(botao).style.display = 'block';
+        content.style.display = 'none';
+    }
 }
 
 function encriptar(StringDescriptada) {
 
-    const characterTransform = {
-        a: "aes",
-        e: "eis",
-        i: "oas",
-        o: "ius",
-        u: "uos",
-    }
+    const characterTransform = [["a", "at"], ["e", "ef"], ["i", "iha"], ["o", "olet"], ["u", "uri"]];
 
     StringDescriptada = StringDescriptada.toLowerCase();
 
-    const StringEncriptada = StringDescriptada.split("").map(character => characterTransform[character] || character).join("")
-    return StringEncriptada;
-}
 
-function Descriptar(stringDescriptada) {
-    let criptografia = [["a", "aes"], ["e", "eis"], ["o", "oas"], ["i", "ius"], ["u", "uos"]];
-    StringEncriptada = StringEncriptada.toLowerCase()
-
-    for (i = 0; i < criptografia.length; i++) {
-        if (StringDescriptada.include(criptografia[i][1])) {
-            StringDescriptada = StringDescriptada.replaceAll(criptografia[i][1], criptografia[i][0])
+    for (let i = 0; i < characterTransform.length; i++) {
+        if (StringDescriptada.includes(characterTransform[i][0])) {
+            StringDescriptada = StringDescriptada.replaceAll(characterTransform[i][0], characterTransform[i][1])
         }
     }
-    return StringDescriptada;
+    return StringDescriptada
+}
+
+function Descriptar(stringEncriptada) {
+    const characterTransform = [["at", "a"], ["ef", "e"], ["iha", "i"], ["olet", "o"], ["uri", "u"]];
+
+    stringEncriptada = stringEncriptada.toLowerCase();
+
+    for (let i = 0; i < characterTransform.length; i++) {
+        if (stringEncriptada.includes(characterTransform[i][0])) {
+            stringEncriptada = stringEncriptada.replaceAll(characterTransform[i][0], characterTransform[i][1])
+        }
+    }
+    return stringEncriptada
 }
 
 function copiarTexto() {
